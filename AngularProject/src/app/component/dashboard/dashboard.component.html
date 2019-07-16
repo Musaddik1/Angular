@@ -1,68 +1,103 @@
-<div fxLayout="row" fxLayoutAlign="start" fxFlex="100">
-    <mat-toolbar>
-        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
-            <div fxLayoutGap="5px">
-                <mat-icon>
-                    menu
-                </mat-icon>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20%">
+        <mat-toolbar>
+            <div fxFlex="100">
+                <div fxLayout="row" fxFlex="15" fxLayoutGap="25%">
+                    <div fxFlex="5">
+                        <button mat-icon-button (click)="sidenav.toggle()">
+                            <mat-icon matTooltip="menu">menu</mat-icon>
+                        </button>
+                    </div>
+                    <div fxFlex="5">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png">
+                    </div>
+                    <div  class="fundoo" fxFlex="5" >
+                        <span style="margin-right: 8px">Fundoo Notes</span>
+                    </div>
+                </div>
+    
+                <div fxFlex="60" fxLayout="row">
+                    <mat-card class="search-bar">
+                        <button mat-icon-button>
+                            <mat-icon>search</mat-icon>
+                        </button>
+                        <input class="search" matInput placeholder="Search" style="width: 450px;" autocomplete="off">
+                    </mat-card>
+                </div>
+    
+                <div fxFlex="35" fxLayout="row" fxLayoutGap="12%" style="margin-left: 100px; margin-top: 8px;">
+                    <div  fxFlex="7">
+                        <button mat-icon-button>
+                            <mat-icon  matTooltip="Refresh">refresh</mat-icon>
+                        </button>
+    
+                    </div>
+                    <div  fxFlex="7">
+                        <button mat-icon-button>
+                            <mat-icon matTooltip="Grid_view">view_agenda</mat-icon>
+                        </button>
+                    </div>
+                    <div  fxFlex="7">
+                        <button mat-icon-button>
+                            <mat-icon matTooltip="settings">settings</mat-icon>
+                        </button>
+                    </div>
+                    <div  fxFlex="7">
+                        <button mat-icon-button>
+                            <mat-icon matTooltip="app">apps</mat-icon>
+                        </button>
+                    </div>
+                    <div  fxFlex="7">
+                        <button mat-icon-button>
+                            <mat-icon matTooltip="account" [matMenuTriggerFor]="more_option">account_circle</mat-icon>
+                        </button>
+                    </div>
+                </div>
             </div>
-
-            <div fxLayoutGap="5px">
-                <img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png" />
-            </div>
-            <div fxLayoutGap="5px">
-                <h3>FundooNotes</h3>
-
-            </div>
-        </div>
-
-        <div fxLayout="row" fxLayoutGap="50px">
-            <mat-card class="matcard">
-                <button mat-icon-button style="margin-right: 520px;">
-                    <mat-icon>
-                        <input matInput placeholder="search" style="width: 500px;"/>
-                        search
-                    </mat-icon>
-                </button>
-            </mat-card>
-        </div>
-
-        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="35px">
-            <div fxLayoutGap="7px">
-                <button mat-icon-button>
-                    <mat-icon matTooltip="refresh">
-                        refresh
-                    </mat-icon>
-                </button>
-            </div>
-            <div fxLayoutGap="7px">
-                <button mat-icon-button>
-                    <mat-icon matTooltip="Grid_View">
-                        view_agenda
-                    </mat-icon>
-                </button>
-            </div>
-            <div fxLayoutGap="7px">
-                <button mat-icon-button>
-                    <mat-icon matTooltip="settings">
-                        settings
-                    </mat-icon>
-                </button>
-            </div>
-            <div fxLayoutGap="7px">
-                <button mat-icon-button>
-                    <mat-icon matTooltip="app">apps</mat-icon>
-                </button>
-            </div>
-            <div fxLayoutGap="7px">
-                <button mat-icon-button>
-                    <mat-icon matTooltip="account">
-                        account_circle
-                    </mat-icon>
-                </button>
-            </div>
-        </div>
-
-
-    </mat-toolbar>
-</div>
+        </mat-toolbar>
+    
+    </div>
+    
+    <mat-sidenav-container class="example-container">
+        <mat-sidenav #sidenav class="example-sidenav" mode="side" style="width: 240px">
+            <mat-nav-list class="navigationlist">
+                <mat-list>
+    
+                    <div>
+                        <button mat-button (click)=onNotes()>
+                            <mat-icon>lightbulb_outline</mat-icon> Notes
+                        </button>
+                    </div>
+    
+                    <div>
+                        <button mat-button  style="    width: 238px;border-radius: 20px" [routerLink]="['remainder']">
+                            <mat-icon padding-right: 108px;>notifications_none</mat-icon> 
+                            <span>Remainder</span>
+                        </button>
+                        <hr>
+                    </div>
+                    <div style="padding-left: 27px">
+                        <span >
+                                <h5>LABELS</h5>
+                        </span>
+                    </div>
+                    <div >
+                        <button mat-button style="border-radius: 54px; width: 239px;">
+                            <mat-icon style="padding-right: 94px">edit</mat-icon>
+                           <span style="margin-right: 37px ; margin-left:-47px"> Edit Labels</span>
+                        </button>
+                    </div>
+    
+    
+    
+    
+                </mat-list>
+            </mat-nav-list>
+        </mat-sidenav>
+    </mat-sidenav-container>
+    <div>
+       <mat-menu #more_option>
+           <button mat-icon mat-flat-button color="primary" (click)="onLogout()" class="button">
+            Logout
+           </button>
+       </mat-menu>
+    </div>

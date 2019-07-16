@@ -4,7 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Login } from 'src/app/Model/login';
 import { Action } from 'rxjs/internal/scheduler/Action';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,11 @@ import { ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private httpService:HttpService,
+    private userservice:UserService,
     private snackbar:MatSnackBar,
     private formbuilder:FormBuilder,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private router:Router,
   ) { }
     login:Login=new Login();
  
@@ -32,7 +34,7 @@ export class LoginComponent implements OnInit {
   onLogin()
   {
     this.token=localStorage.getItem(this.token);
-    this.httpService.postRequest('userservice/login',this.login).subscribe(
+    this.userservice.postRequest('userservice/login',this.login).subscribe(
       (response:any):any=>
       {
         if(response.statuscode==200)
@@ -42,7 +44,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('name',response.name);
           localStorage.setItem('email',this.login.email);
           this.snackbar.open("login successfully...","close",{duration:2500})
-          console.log("Succcessfulyl logged in");
+          this.router.navigateByUrl('/dashboard');
+          console.log("Succcessfully logged in");
           
         }
         else
@@ -52,5 +55,6 @@ export class LoginComponent implements OnInit {
       }
     )
   }
+ 
 
 }

@@ -3,6 +3,7 @@ import { Register } from 'src/app/Model/register';
 import { HttpService } from 'src/app/services/http.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup,FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { FormGroup,FormBuilder, FormControl, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private httpservice:HttpService,private snackbar:MatSnackBar,
+  constructor(private userservice:UserService, private snackbar:MatSnackBar,
     private formbuilder:FormBuilder
 
   ) { }
@@ -39,7 +40,7 @@ export class RegisterComponent implements OnInit {
     console.log("register")
     console.log(this.register)
     
-    this.httpservice.postRequest('userservice/register',this.register).subscribe(
+    this.userservice.postRequest('userservice/register',this.register).subscribe(
      
       (response:any):any =>
       {

@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormControl, Validators } from '@angular/forms';
 import { Forgot } from 'src/app/Model/forgot';
 import { validateVerticalPosition } from '@angular/cdk/overlay';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-forget',
@@ -13,7 +14,7 @@ import { validateVerticalPosition } from '@angular/cdk/overlay';
 export class ForgetComponent implements OnInit {
 
   constructor(
-    private httpservice: HttpService,
+   private userservice:UserService,
     private snackbar: MatSnackBar,
 
 
@@ -40,7 +41,7 @@ export class ForgetComponent implements OnInit {
   
     console.log('click on forgot ==>',this.forgot.emailId)
 
-    this.httpservice.getRequest("userservice/forget?emailId=" + this.forgot.emailId).subscribe(
+    this.userservice.getRequest("userservice/forget?emailId="+this.forgot.emailId,'').subscribe(
       (response: any): any => {
         console.log('forgot done ==>',response);
 

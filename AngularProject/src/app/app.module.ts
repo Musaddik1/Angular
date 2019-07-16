@@ -22,6 +22,15 @@ import { ResetpasswordComponent } from './component/resetpassword/resetpassword.
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import {MatExpansionModule}from '@angular/material/expansion'
 import { FlexLayoutModule } from "@angular/flex-layout";
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatListModule} from '@angular/material/list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+
+import {MatMenuModule} from '@angular/material/menu'; 
+
+
 
 @NgModule({
   declarations: [
@@ -48,7 +57,12 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     FormsModule,
     MatDividerModule,
     MatExpansionModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSidenavModule,
+    MatTooltipModule,
+    MatListModule,
+    MatSlideToggleModule,
+    MatMenuModule
      
   ],
   providers: [HttpService],

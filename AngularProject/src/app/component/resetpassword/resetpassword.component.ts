@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpService } from 'src/app/services/http.service';
 import { FormControl, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-resetpassword',
@@ -12,7 +13,8 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class ResetpasswordComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private snackbar:MatSnackBar,private httpClient:HttpService) { }
+  constructor(private route:ActivatedRoute,private snackbar:MatSnackBar,
+    private userservice:UserService) { }
   resetpassword:Resetpassword=new Resetpassword();
   token:string;
   ngOnInit() {
@@ -24,7 +26,7 @@ export class ResetpasswordComponent implements OnInit {
 
   onReset()
   {
-    this.httpClient.putRequest('userservice/resetpassword'+this.confirmPassword).subscribe(
+    this.userservice.putRequest("userservice/resetpassword",this.resetpassword.confirmPassword).subscribe(
       (response:any):any=>
       {
         if(response.statuscode==200)
