@@ -58,20 +58,21 @@
     </div>
     
     <mat-sidenav-container class="example-container">
-        <mat-sidenav #sidenav class="example-sidenav" mode="side" style="width: 240px">
+        <mat-sidenav #sidenav class="example-sidenav" mode="side" style="width: 240px;">
             <mat-nav-list class="navigationlist">
                 <mat-list>
     
                     <div>
-                        <button mat-button (click)=onNotes()>
-                            <mat-icon>lightbulb_outline</mat-icon> Notes
+                        <button style="width: 238px;border-radius: 20px" mat-button (click)=onNotes()>
+                            <mat-icon style="padding-right: 138px">lightbulb_outline</mat-icon>
+                            <span style="margin-right: 125px;margin-left: -106px">Notes</span>
                         </button>
                     </div>
     
                     <div>
-                        <button mat-button  style="    width: 238px;border-radius: 20px" [routerLink]="['remainder']">
-                            <mat-icon padding-right: 108px;>notifications_none</mat-icon> 
-                            <span>Remainder</span>
+                        <button mat-button  style="width: 238px;border-radius: 20px" [routerLink]="['remainder']">
+                            <mat-icon style="padding-right: 108px">notifications_none</mat-icon> 
+                            <span style="margin-right: 80px;margin-left: -76px">Reminders</span>
                         </button>
                         <hr>
                     </div>
@@ -83,10 +84,28 @@
                     <div >
                         <button mat-button style="border-radius: 54px; width: 239px;">
                             <mat-icon style="padding-right: 94px">edit</mat-icon>
-                           <span style="margin-right: 37px ; margin-left:-47px"> Edit Labels</span>
+                           <span style="margin-right: 84px;margin-left: -62px"> Edit Labels</span>
+                        </button>
+                        
+                    </div>
+                    <hr>
+                    <div>
+                        <button mat-button style="border-radius: 20px;width: 239px">
+                            <mat-icon style="padding-right: 134px;">
+                                archive
+                            </mat-icon>
+                            <span style="margin-right: 104px;margin-left: -96px">Archive</span>
                         </button>
                     </div>
-    
+                    <div>
+                        <button mat-button style="border-radius: 25px;width: 238px;">
+                            <mat-icon style="padding-right: 162px;">
+                                delete
+                            </mat-icon>
+                            <span style="margin-right: 135px;
+                            margin-left: -122px;">Bin</span>
+                        </button>
+                    </div>
     
     
     
@@ -95,7 +114,7 @@
         </mat-sidenav>
     </mat-sidenav-container>
     <div>
-       <mat-menu #more_option>
+       <mat-menu #more_option >
            <button mat-icon mat-flat-button color="primary" (click)="onLogout()" class="button">
             Logout
            </button>

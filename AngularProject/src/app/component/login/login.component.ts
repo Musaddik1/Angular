@@ -26,14 +26,14 @@ export class LoginComponent implements OnInit {
     token:string
   ngOnInit() {
     this.token = this.route.snapshot.paramMap.get('token');
-
+    console.log(this.token);
    
   }
   email=new FormControl(this.login.email,Validators.required)
   password=new  FormControl(this.login.password,Validators.required)
   onLogin()
   {
-    this.token=localStorage.getItem(this.token);
+   
     this.userservice.postRequest('userservice/login',this.login).subscribe(
       (response:any):any=>
       {
@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
         {
           console.log(response)
           localStorage.setItem('token',response.data);
-          localStorage.setItem('name',response.name);
           localStorage.setItem('email',this.login.email);
           this.snackbar.open("login successfully...","close",{duration:2500})
           this.router.navigateByUrl('/dashboard');

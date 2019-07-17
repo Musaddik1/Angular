@@ -28,7 +28,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
-import {MatMenuModule} from '@angular/material/menu'; 
+import {MatMenuModule} from '@angular/material/menu';
+import { CreatenoteComponent } from './component/createnote/createnote.component'; 
 
 
 
@@ -39,7 +40,8 @@ import {MatMenuModule} from '@angular/material/menu';
     RegisterComponent,
     ForgetComponent,
     ResetpasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreatenoteComponent
   ],
   imports: [
     BrowserModule,

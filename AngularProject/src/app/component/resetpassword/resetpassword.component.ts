@@ -6,6 +6,7 @@ import { HttpService } from 'src/app/services/http.service';
 import { FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 
+
 @Component({
   selector: 'app-resetpassword',
   templateUrl: './resetpassword.component.html',
@@ -16,22 +17,32 @@ export class ResetpasswordComponent implements OnInit {
   constructor(private route:ActivatedRoute,private snackbar:MatSnackBar,
     private userservice:UserService) { }
   resetpassword:Resetpassword=new Resetpassword();
-  token:string;
+  token:any;
+ 
   ngOnInit() {
-    this.token = this.route.snapshot.paramMap.get('token');
-  }
   
+    this.token=this.route.snapshot.paramMap.get('token');
+    localStorage.setItem('token',this.token);
+
+    console.log("token is",this.token);
+  }
+
   password=new FormControl(this.resetpassword.password,Validators.minLength(5))
   confirmPassword=new FormControl(this.resetpassword.confirmPassword,Validators.minLength(5));
 
+
   onReset()
   {
-    this.userservice.putRequest("userservice/resetpassword",this.resetpassword.confirmPassword).subscribe(
+    
+    if(this.password.value==this.confirmPassword.value)
+    {
+    this.userservice.putRequest("userservice/resetpassword?password="+this.resetpassword.password,this.resetpassword.password).subscribe(
       (response:any):any=>
       {
+        
         if(response.statuscode==200)
         {
-          localStorage.setItem('token',response.data);
+          
           this.snackbar.open("Password reset successfully..","close",{duration:2500})
         }else
         {
@@ -40,4 +51,10 @@ export class ResetpasswordComponent implements OnInit {
       }
     )
   }
+
+  else
+  {
+    console.log("please enter both field correctly..");
+  }
+ }
 }

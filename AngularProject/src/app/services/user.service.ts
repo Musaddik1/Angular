@@ -9,15 +9,16 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 
   baseUrl = environment.baseUrl
+  
   constructor(
     private httpclient:HttpClient,
     private route:ActivatedRoute
   ) { }
-  token=this.route.snapshot.paramMap.get('token');
+    token=this.route.snapshot.paramMap.get('token');
 
   public postRequest(url:any,data:any)
   {
-    return this.httpclient.post(this.baseUrl+url,data,{headers:new HttpHeaders().set('token',localStorage.getItem('token')||'')})
+    return this.httpclient.post(this.baseUrl+url,data,{headers:new HttpHeaders().set("token",localStorage.getItem('token')||'')})
   }
   public getRequest(url:any,data:any)
   {
@@ -25,6 +26,6 @@ export class UserService {
   }
   public putRequest(url:any,data:any)
   {
-    return this.httpclient.put(this.baseUrl+url,data,{headers:new HttpHeaders().set('token',localStorage.getItem('token'))})
+    return this.httpclient.put(this.baseUrl+url,data,{headers: new HttpHeaders().set("token",localStorage.getItem('token'))})
   }
 }

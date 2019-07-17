@@ -27,8 +27,6 @@ export class ForgetComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log('in forgot password ==>',localStorage.getItem('token'));
-
     // this.forgetForm=this.formbuilder.group(
     //   {
     //     "email:new FormControl(thislllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll.forgot.emailId,[Validators.required])

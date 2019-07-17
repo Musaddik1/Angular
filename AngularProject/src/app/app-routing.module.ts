@@ -5,6 +5,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { ForgetComponent } from './component/forget/forget.component';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { CreatenoteComponent } from './component/createnote/createnote.component';
 
 
 const routes: Routes = [
@@ -21,12 +22,16 @@ const routes: Routes = [
     component:ForgetComponent
   },
   {
-    path:"userservice/restSetPassword/:data",
+    path:"reset/:token",
     component:ResetpasswordComponent
   },
   {
     path:"dashboard",
     component:DashboardComponent
+  },
+  {
+    path:"createnote",
+    component:CreatenoteComponent
   }
 ];
 
