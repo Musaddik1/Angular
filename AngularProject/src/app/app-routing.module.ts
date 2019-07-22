@@ -6,6 +6,12 @@ import { ForgetComponent } from './component/forget/forget.component';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { CreatenoteComponent } from './component/createnote/createnote.component';
+import { GetnoteComponent } from './component/getnote/getnote.component';
+import { IconComponent } from './component/icon/icon.component';
+import { TrashComponent } from './component/trash/trash.component';
+import { ArchiveComponent } from './component/archive/archive.component';
+
+
 
 
 const routes: Routes = [
@@ -27,12 +33,51 @@ const routes: Routes = [
   },
   {
     path:"dashboard",
-    component:DashboardComponent
+    component:DashboardComponent,
+    children:[
+     
+      {
+        path:"",
+        component:GetnoteComponent
+      },
+      {
+        path:'',
+        component:CreatenoteComponent
+      },
+      {
+        path:"getTrash",
+        component:TrashComponent
+      },
+      {
+        path:"getnote",
+        component:GetnoteComponent
+      },
+      {
+        path:"getArchive",
+        component:ArchiveComponent
+      }
+     
+    ]
+   
   },
   {
     path:"createnote",
     component:CreatenoteComponent
+  },
+  {
+    path:"icon",
+    component:IconComponent
+  },
+  {
+    path:"trash",
+    component:TrashComponent
+  },
+  {
+    path:"archive",
+    component:ArchiveComponent
   }
+  
+
 ];
 
 @NgModule({

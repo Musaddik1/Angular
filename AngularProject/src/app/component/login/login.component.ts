@@ -22,19 +22,26 @@ export class LoginComponent implements OnInit {
     private router:Router,
   ) { }
     login:Login=new Login();
- 
+    loginForm:FormGroup;
     token:string
   ngOnInit() {
     this.token = this.route.snapshot.paramMap.get('token');
     console.log(this.token);
-   
+    this.loginForm=this.formbuilder.group(
+      {
+        "email":new FormControl(this.login.email,Validators.required),
+        "password":new FormControl(this.login.password,Validators.minLength(5))
+        
+      }
+    )
+    
   }
-  email=new FormControl(this.login.email,Validators.required)
-  password=new  FormControl(this.login.password,Validators.required)
+   email=new FormControl(this.login.email,Validators.required)
+   password=new  FormControl(this.login.password,Validators.required)
   onLogin()
   {
    
-    this.userservice.postRequest('userservice/login',this.login).subscribe(
+    this.userservice.postRequest('userservice/login',this.loginForm.value).subscribe(
       (response:any):any=>
       {
         if(response.statuscode==200)

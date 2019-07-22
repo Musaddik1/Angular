@@ -13,12 +13,15 @@ export class HttpService {
   public postRequest(url: any, data: any): any {
     return this.httpclient.post(this.baseUrl + url, data);
   }
-  public getRequest(url: any): any {
-    return this.httpclient.get(this.baseUrl + url);
+  public getRequest(url: any,data:any): any {
+    return this.httpclient.get(this.baseUrl + url,data);
   }
 
   public putRequest(url: any,data:any): any {
     return this.httpclient.put(this.baseUrl + url,data);
   }
-
+  public deleteRequest(url:any,data:any):any{
+    
+    return this.httpclient.delete(this.baseUrl+url,data);
+  }
 }

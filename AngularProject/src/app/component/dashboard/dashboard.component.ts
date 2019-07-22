@@ -19,4 +19,16 @@ export class DashboardComponent implements OnInit {
    
     this.router.navigateByUrl('/login');
   }
+  getTrash()
+  {
+    this.router.navigate(['dashboard/getTrash']);
+  }
+  onNotes()
+  {
+    this.router.navigate(['dashboard/getnote']);
+  }
+  getArchive()
+  {
+    this.router.navigate(['dashboard/getArchive'])
+  }
 }

@@ -3,59 +3,56 @@
     <div fxLayout="column" fxLayoutAlign=" center">
       <div>
         <mat-card-title>
-          <h2>FundooNotes</h2>
+          <h2 style="margin-top: 6px;">FundooNotes</h2>
         </mat-card-title>
         <mat-card-subtitle>
-          <h2>Registration</h2>
+          <h2 style="margin-top: -21px;">Registration</h2>
         </mat-card-subtitle>
       </div>
-
       <div>
-        <mat-form-field appearance="outline">
-          <mat-label>Name</mat-label>
-          <input matInput placeholder="name" [formControl]="name" [(ngModel)]="register.name" required>
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <form [formGroup]="registerForm">
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="name" formControlName="name" [(ngModel)]="register.name" required>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 
-        </mat-form-field>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>email</mat-label>
+              <input matInput placeholder="email" formControlName="email" [(ngModel)]="register.email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+              <mat-icon matSuffix>email</mat-icon>
+
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>number</mat-label>
+              <input matInput placeholder="number" formControlName="phoneNumber" [(ngModel)]="register.phoneNumber" required>
+              <mat-icon matSuffix>phone</mat-icon>
+
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Enter your password"  formControlName="password" [(ngModel)]="register.password"
+                [type]="hide ? 'password' : 'text'" required>
+
+              <mat-icon matSuffix (click)="hide= !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+            </mat-form-field>
+          </div>
+
+
+
+        </form>
       </div>
-
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label>email</mat-label>
-          <input matInput placeholder="email" [formControl]="email" [(ngModel)]="register.email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-          <mat-icon matSuffix>email</mat-icon>
-
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field appearance="outline">
-          <mat-label>number</mat-label>
-          <input matInput placeholder="number" [formControl]="phoneNumber" [(ngModel)]="register.phoneNumber">
-          <mat-icon matSuffix>phone</mat-icon>
-
-        </mat-form-field>
-      </div>
-      <!-- <div>
-                                  <mat-form-field appearance="outline" class="all">
-                                   <mat-label>number</mat-label>
-                                   <input matInput placeholder="password" formControlName="password" [(ngModel)]="register.password">
-                                   <mat-icon matSuffix>phone</mat-icon>
-                                   
-                                 </mat-form-field>
-                           </div> -->
-      <div>
-        <mat-form-field appearance="outline">
-          <input matInput placeholder="Enter your password" [formControl]="password" [(ngModel)]="register.password"
-            [type]="hide ? 'password' : 'text'" required>
-
-          <mat-icon matSuffix (click)="hide= !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-
-        </mat-form-field>
-      </div>
-
-
 
 
       <div>

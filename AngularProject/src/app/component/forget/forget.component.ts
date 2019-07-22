@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Forgot } from 'src/app/Model/forgot';
 import { validateVerticalPosition } from '@angular/cdk/overlay';
 import { UserService } from 'src/app/services/user.service';
@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./forget.component.scss']
 })
 export class ForgetComponent implements OnInit {
+  [x: string]: any;
 
   constructor(
    private userservice:UserService,
@@ -20,24 +21,24 @@ export class ForgetComponent implements OnInit {
 
   ) { }
   forgot: Forgot = new Forgot();
-  // forgetForm:FormGroup
+  forgetForm:FormGroup;
 
   emailId = new FormControl(this.forgot.emailId, [Validators.required])
 
 
   ngOnInit() {
 
-    // this.forgetForm=this.formbuilder.group(
-    //   {
-    //     "email:new FormControl(thislllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll.forgot.emailId,[Validators.required])
-    //   }
-    // )
+    this.forgetForm=new FormBuilder().group(
+      {
+         "emailId":new FormControl(this.forgot.emailId,[Validators.required])
+      }
+    )
   }
 
   onForget() {
 
   
-    console.log('click on forgot ==>',this.forgot.emailId)
+    console.log('click on forgot ==>',this.forgetForm.value);
 
     this.userservice.getRequest("userservice/forget?emailId="+this.forgot.emailId,'').subscribe(
       (response: any): any => {

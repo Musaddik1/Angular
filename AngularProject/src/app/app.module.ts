@@ -27,9 +27,16 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import {MatMenuModule} from '@angular/material/menu';
-import { CreatenoteComponent } from './component/createnote/createnote.component'; 
+import { CreatenoteComponent } from './component/createnote/createnote.component';
+import { GetnoteComponent } from './component/getnote/getnote.component';
+import { IconComponent } from './component/icon/icon.component';
+import { TrashComponent } from './component/trash/trash.component';
+import { ArchiveComponent } from './component/archive/archive.component';
+
+
 
 
 
@@ -41,7 +48,11 @@ import { CreatenoteComponent } from './component/createnote/createnote.component
     ForgetComponent,
     ResetpasswordComponent,
     DashboardComponent,
-    CreatenoteComponent
+    CreatenoteComponent,
+    GetnoteComponent,
+    IconComponent,
+    TrashComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +75,8 @@ import { CreatenoteComponent } from './component/createnote/createnote.component
     MatTooltipModule,
     MatListModule,
     MatSlideToggleModule,
-    MatMenuModule
+    MatMenuModule,
+    MatGridListModule
      
   ],
   providers: [HttpService],

@@ -3,14 +3,14 @@
         <div fxLayout="column" fxLayoutAlign="center center">
             <div>
                 <mat-card-title>
-                    <h2>FundooNotes</h2>
+                    <h2 style="margin-top: 6px">FundooNotes</h2>
                 </mat-card-title>
                 <mat-card-subtitle>
-                    <h1>forget</h1>
+                    <h1 style="margin-top: -29px">forget</h1>
                 </mat-card-subtitle>
             </div>
             <div>
-
+                <form [formGroup]="forgetForm">
                 <div>
                     <mat-form-field appearance="outline">
                         <mat-label>email</mat-label>
@@ -19,11 +19,11 @@
                         <mat-icon matSuffix>email</mat-icon>
                     </mat-form-field>
                 </div>
-
+            </form>
 
             </div>
             <div>
-                <button style="margin-left: 158px" mat-flat-button color="primary" (click)="onForget()">forget</button>
+                <button style="margin-left: 158px; margin-top: -4px" mat-flat-button color="primary" (click)="onForget()">forget</button>
             </div>
         </div>
 
