@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   }
   onNotes()
   {
-    this.router.navigate(['dashboard/getnote']);
+    this.router.navigate(['dashboard/createnote']);
   }
   getArchive()
   {

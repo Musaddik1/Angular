@@ -56,7 +56,9 @@
     </mat-toolbar>
 
 </div>
-
+<div>
+        <hr>
+</div>
 <mat-sidenav-container class="example-container">
     
     <mat-sidenav #sidenav class="example-sidenav" mode="side" class="mat-sidenav">
@@ -64,7 +66,7 @@
             <mat-list>
 
                 <div>
-                    <button style="width: 238px;border-radius: 20px" mat-button (click)=onNotes()>
+                    <button style="width: 238px;border-radius: 20px" mat-button (click)="onNotes()">
                         <mat-icon style="padding-right: 138px">lightbulb_outline</mat-icon>
                         <span style="margin-right: 125px;margin-left: -106px">Notes</span>
                     </button>

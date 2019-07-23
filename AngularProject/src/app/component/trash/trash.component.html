@@ -1,11 +1,28 @@
-<div class="mainCard" *ngFor="let item of notesList" >
-        <div>
-             <mat-card >
-                     <p>{{item.title}}</p>
-                     <p> {{item.description}}</p>
-                     <div fxLayout="row" fxLayoutAlign="start">
-                      <app-icon></app-icon>
-                         </div>
-                     </mat-card>
-        </div>
- </div>
+<div class="mainCard" *ngFor="let item of notesList">
+
+        <mat-card style="height: 68px;width: 275px">
+                        
+                                <p>{{item.title}}</p>
+                        <p> {{item.description}}</p>
+                        <div fxLayout="row" fxLayoutAlign="start">
+                        <button style="margin-top: -23px;margin-left: -23px;" mat-icon-button>
+                                <mat-icon [matMenuTriggerFor]="more_option">more_vert</mat-icon>
+                        </button>
+                        
+                </div>
+               
+        </mat-card>
+
+</div>
+<div>
+        <mat-menu #more_option>
+                <button mat-icon mat-flat-button (click)="onDelete()">
+                        Delete forever
+                </button>
+                <br>
+
+                <button mat-icon mat-flat-button (click)="onRestore()">
+                        Restore
+                </button>
+        </mat-menu>
+</div>

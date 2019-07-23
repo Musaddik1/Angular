@@ -35,6 +35,9 @@ import { GetnoteComponent } from './component/getnote/getnote.component';
 import { IconComponent } from './component/icon/icon.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ArchiveComponent } from './component/archive/archive.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { UpdatenoteComponent } from './component/updatenote/updatenote.component';
+
 
 
 
@@ -52,7 +55,8 @@ import { ArchiveComponent } from './component/archive/archive.component';
     GetnoteComponent,
     IconComponent,
     TrashComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    UpdatenoteComponent
   ],
   imports: [
     BrowserModule,
@@ -76,8 +80,12 @@ import { ArchiveComponent } from './component/archive/archive.component';
     MatListModule,
     MatSlideToggleModule,
     MatMenuModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
      
+  ],
+  entryComponents:[
+    UpdatenoteComponent
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

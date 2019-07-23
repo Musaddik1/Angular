@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/services/note.service';
-import { Note } from 'src/app/Model/note';
+
 
 
 @Component({

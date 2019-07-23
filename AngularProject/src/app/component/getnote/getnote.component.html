@@ -1,31 +1,15 @@
 <div class="mainCard" *ngFor="let item of noteList" >
     <mat-card>
-        <p>{{item.title}}</p>
-        <p> {{item.description}}</p>
-        <div fxLayout="row" fxLayoutAlign="start">
-                <!-- <button mat-icon-button>
-                  <mat-icon>add_alert</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon>person_add</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon>color_lens</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon>image</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon>archive</mat-icon>
-                </button>
-                <button mat-icon-button>
-                  <mat-icon  [matMenuTriggerFor]="more_option">more_vert</mat-icon>
-                  
-                </button> -->
-                <app-icon [noteInfo]="item"></app-icon>
-            </div>
+        
+      <div (click)="openDialog(item)">
+          <p>{{item.title}}</p>
+          <p> {{item.description}}</p>
+          <div fxLayout="row" fxLayoutAlign="start">
+                  <app-icon [noteInfo]="item"></app-icon>
+              </div >
+      </div>
         </mat-card>
-   
+ 
 </div>
 <!-- <div>
     <mat-menu #more_option>

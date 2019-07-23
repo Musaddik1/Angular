@@ -37,21 +37,21 @@ const routes: Routes = [
     children:[
      
       {
-        path:"",
-        component:GetnoteComponent
+        path:"createnote",
+        component:CreatenoteComponent
       },
       {
-        path:'',
-        component:CreatenoteComponent
+        path:"",
+        component:GetnoteComponent
       },
       {
         path:"getTrash",
         component:TrashComponent
       },
-      {
-        path:"getnote",
-        component:GetnoteComponent
-      },
+      // {
+      //   path:"getnote",
+      //   component:GetnoteComponent
+      // },
       {
         path:"getArchive",
         component:ArchiveComponent
@@ -59,10 +59,6 @@ const routes: Routes = [
      
     ]
    
-  },
-  {
-    path:"createnote",
-    component:CreatenoteComponent
   },
   {
     path:"icon",
@@ -75,7 +71,8 @@ const routes: Routes = [
   {
     path:"archive",
     component:ArchiveComponent
-  }
+  },
+ 
   
 
 ];
