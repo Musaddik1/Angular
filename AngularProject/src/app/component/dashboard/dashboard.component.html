@@ -57,7 +57,7 @@
 
 </div>
 <div>
-        <hr>
+        <hr style="margin-top: 0px;">
 </div>
 <mat-sidenav-container class="example-container">
     
@@ -84,8 +84,16 @@
                         <h5>LABELS</h5>
                     </span>
                 </div>
+                <div *ngFor="let item of notesList" fxLayout="row">
+                        <button mat-button>
+                                <mat-icon [matTooltip]="label">label</mat-icon>
+                           </button>
+                    <p style="margin-left: 22px;">{{item.labelName}}</p>
+                   
+                    
+                </div>
                 <div>
-                    <button mat-button style="border-radius: 54px; width: 239px;">
+                    <button mat-button style="border-radius: 54px; width: 239px;" (click)="editLabel()">
                         <mat-icon style="padding-right: 94px">edit</mat-icon>
                         <span style="margin-right: 84px;margin-left: -62px"> Edit Labels</span>
                     </button>

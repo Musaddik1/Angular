@@ -55,7 +55,8 @@ const routes: Routes = [
       {
         path:"getArchive",
         component:ArchiveComponent
-      }
+      },
+      
      
     ]
    

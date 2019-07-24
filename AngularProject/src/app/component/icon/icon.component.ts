@@ -43,11 +43,11 @@ export class IconComponent implements OnInit {
         {
           if(response.statuscode==200)
           {
-            this.snackbar.open("note is archived","close",{duration:2500})
+            this.snackbar.open(response.statusMessage,"close",{duration:2500})
           }
-          else
+          else if(response.statuscode==200 && !this.noteInfo.noteId==false)
           {
-            this.snackbar.open("note is unarchived","close",{duration:2500})
+            this.snackbar.open("note is archived","close",{duration:2500})
           }
         }
       )

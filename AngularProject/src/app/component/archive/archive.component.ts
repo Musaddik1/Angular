@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -11,6 +11,7 @@ export class ArchiveComponent implements OnInit {
 
   constructor(private noteservice:NoteService,private snackBar:MatSnackBar) { }
   notesList:any
+  @Input() noteInfo:any
   ngOnInit() {
     this.getArchive();
   }
@@ -23,6 +24,8 @@ export class ArchiveComponent implements OnInit {
       }
     )
   }
+
+  
   
 
 }

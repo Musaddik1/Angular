@@ -4,10 +4,11 @@
       <div (click)="openDialog(item)">
           <p>{{item.title}}</p>
           <p> {{item.description}}</p>
-          <div fxLayout="row" fxLayoutAlign="start">
-                  <app-icon [noteInfo]="item"></app-icon>
-              </div >
+         
       </div>
+      <div fxLayout="row" fxLayoutAlign="start">
+        <app-icon [noteInfo]="item"></app-icon>
+    </div >
         </mat-card>
  
 </div>

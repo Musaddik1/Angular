@@ -37,6 +37,7 @@ import { TrashComponent } from './component/trash/trash.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdatenoteComponent } from './component/updatenote/updatenote.component';
+import { EditlabelComponent } from './component/editlabel/editlabel.component';
 
 
 
@@ -56,7 +57,8 @@ import { UpdatenoteComponent } from './component/updatenote/updatenote.component
     IconComponent,
     TrashComponent,
     ArchiveComponent,
-    UpdatenoteComponent
+    UpdatenoteComponent,
+    EditlabelComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ import { UpdatenoteComponent } from './component/updatenote/updatenote.component
      
   ],
   entryComponents:[
-    UpdatenoteComponent
+    UpdatenoteComponent,
+    EditlabelComponent
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
