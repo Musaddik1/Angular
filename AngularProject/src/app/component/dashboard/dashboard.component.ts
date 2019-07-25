@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditlabelComponent } from '../editlabel/editlabel.component';
 import { Label } from 'src/app/Model/label';
 import { LabelService } from 'src/app/services/label.service';
+import { NoteService } from 'src/app/services/note.service';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,11 +14,16 @@ import { LabelService } from 'src/app/services/label.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router,private dialog:MatDialog,private labelservice:LabelService) { }
+  constructor(private router:Router,private dialog:MatDialog,private labelservice:LabelService,private noteservice:NoteService) { }
   notesList:any;
+  
   ngOnInit() {
     this.getLabel();
+   
+   
   }
+  
+
   onLogout()
   {
    
@@ -41,7 +48,7 @@ export class DashboardComponent implements OnInit {
   {
     const ref=this.dialog.open(EditlabelComponent,{
       width:"280px",
-      height:"300px"
+    //  height:"300px"
     })
   }
   getLabel()
@@ -55,4 +62,6 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
+
+ 
 }

@@ -10,6 +10,7 @@ import { GetnoteComponent } from './component/getnote/getnote.component';
 import { IconComponent } from './component/icon/icon.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ArchiveComponent } from './component/archive/archive.component';
+import { RestoreComponent } from './component/restore/restore.component';
 
 
 
@@ -73,6 +74,10 @@ const routes: Routes = [
     path:"archive",
     component:ArchiveComponent
   },
+  {
+    path:"restore",
+    component:RestoreComponent
+  }
  
   
 

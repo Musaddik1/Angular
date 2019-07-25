@@ -4,17 +4,18 @@
                         
                                 <p>{{item.title}}</p>
                         <p> {{item.description}}</p>
-                        <div fxLayout="row" fxLayoutAlign="start">
+                        <!-- <div fxLayout="row" fxLayoutAlign="start">
                         <button style="margin-top: -23px;margin-left: -23px;" mat-icon-button>
                                 <mat-icon [matMenuTriggerFor]="more_option">more_vert</mat-icon>
                         </button>
                         
-                </div>
+                </div> -->
+                <app-restore [noteInfo]="item"></app-restore>
                
         </mat-card>
 
 </div>
-<div>
+<!-- <div>
         <mat-menu #more_option>
                 <button mat-icon mat-flat-button (click)="onDelete()">
                         Delete forever
@@ -25,4 +26,4 @@
                         Restore
                 </button>
         </mat-menu>
-</div>
+</div> -->

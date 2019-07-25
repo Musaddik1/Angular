@@ -28,6 +28,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {MatMenuModule} from '@angular/material/menu';
 import { CreatenoteComponent } from './component/createnote/createnote.component';
@@ -38,6 +39,7 @@ import { ArchiveComponent } from './component/archive/archive.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { UpdatenoteComponent } from './component/updatenote/updatenote.component';
 import { EditlabelComponent } from './component/editlabel/editlabel.component';
+import { RestoreComponent } from './component/restore/restore.component';
 
 
 
@@ -58,7 +60,8 @@ import { EditlabelComponent } from './component/editlabel/editlabel.component';
     TrashComponent,
     ArchiveComponent,
     UpdatenoteComponent,
-    EditlabelComponent
+    EditlabelComponent,
+    RestoreComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,8 @@ import { EditlabelComponent } from './component/editlabel/editlabel.component';
     MatSlideToggleModule,
     MatMenuModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
      
   ],
   entryComponents:[

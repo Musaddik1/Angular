@@ -16,12 +16,14 @@
             </div>
 
             <div fxFlex="60" fxLayout="row">
+                
                 <mat-card class="search-bar">
-                    <button mat-icon-button>
+                    <button mat-icon-button >
                         <mat-icon>search</mat-icon>
                     </button>
-                    <input class="search" matInput placeholder="Search" style="width: 450px;" autocomplete="off">
+                    <input class="search" matInput placeholder="Search"  style="width: 450px;" autocomplete="off">
                 </mat-card>
+            
             </div>
 
             <div fxFlex="35" fxLayout="row" fxLayoutGap="12%" style="margin-left: 100px; margin-top: 8px;">
@@ -85,10 +87,10 @@
                     </span>
                 </div>
                 <div *ngFor="let item of notesList" fxLayout="row">
-                        <button mat-button>
+                        <button mat-button (click)="showLabelNotes()" style="height: 0px;">
                                 <mat-icon [matTooltip]="label">label</mat-icon>
                            </button>
-                    <p style="margin-left: 22px;">{{item.labelName}}</p>
+                    <p style="margin-left: 22px;margin-top: 10px;">{{item.labelName}}</p>
                    
                     
                 </div>

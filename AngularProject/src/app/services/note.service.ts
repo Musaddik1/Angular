@@ -26,9 +26,9 @@ public getRequest(url:any)
 {
   return this.httpclient.get(this.baseUrl+url,{headers: new HttpHeaders().set("token",localStorage.getItem("token"))});
 }
-public deleteRequest(url:any,data:any)
+public deleteRequest(url:any)
 {
-  return this.httpclient.delete(this.baseUrl+url,data); 
+  return this.httpclient.delete(this.baseUrl+url,{headers:new HttpHeaders().set("token",localStorage.getItem("token"))}); 
 }
 
 
