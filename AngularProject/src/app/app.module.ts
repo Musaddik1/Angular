@@ -40,6 +40,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UpdatenoteComponent } from './component/updatenote/updatenote.component';
 import { EditlabelComponent } from './component/editlabel/editlabel.component';
 import { RestoreComponent } from './component/restore/restore.component';
+import { SearchComponent } from './component/search/search.component';
 
 
 
@@ -61,7 +62,8 @@ import { RestoreComponent } from './component/restore/restore.component';
     ArchiveComponent,
     UpdatenoteComponent,
     EditlabelComponent,
-    RestoreComponent
+    RestoreComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

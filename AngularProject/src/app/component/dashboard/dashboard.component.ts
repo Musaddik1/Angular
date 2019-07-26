@@ -6,6 +6,7 @@ import { Label } from 'src/app/Model/label';
 import { LabelService } from 'src/app/services/label.service';
 import { NoteService } from 'src/app/services/note.service';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,10 +14,11 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  private obtainNotes = new BehaviorSubject([]);
+  currentMessage = this.obtainNotes.asObservable();
   constructor(private router:Router,private dialog:MatDialog,private labelservice:LabelService,private noteservice:NoteService) { }
   notesList:any;
-  
+  searchNotes:any;
   ngOnInit() {
     this.getLabel();
    
@@ -43,6 +45,18 @@ export class DashboardComponent implements OnInit {
   {
     this.router.navigate(['dashboard/getArchive'])
   }
+  onSearch(text:any)
+  {
+    this.noteservice.getRequest("noteservice/search?text="+text).subscribe
+    (
+      (response:any):any=>{
+        this.obtainNotes=response;
+        console.log("search notes =>",response);
+       this.router.navigate(['dashboard/search'])
+      }
+    );
+    
+   }
 
   editLabel()
   {

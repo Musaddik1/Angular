@@ -21,7 +21,7 @@
                     <button mat-icon-button >
                         <mat-icon>search</mat-icon>
                     </button>
-                    <input class="search" matInput placeholder="Search"  style="width: 450px;" autocomplete="off">
+                    <input class="search" (input)="onSearch($event.target.value)" matInput placeholder="Search"  style="width: 450px;" autocomplete="off">
                 </mat-card>
             
             </div>

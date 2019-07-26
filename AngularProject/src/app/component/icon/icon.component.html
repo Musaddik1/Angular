@@ -48,7 +48,8 @@
   <mat-menu #labelTrigger="matMenu">
     <div>Label note</div>
     <div *ngFor="let labels of labelsList">
-      <mat-checkbox class="addlabel" (click)="addLabeltoNote(labels)">{{labels.labelName}}
+      <mat-checkbox class="addlabel" (click)="addLabeltoNote(labels)">
+        {{labels.labelName}}
       </mat-checkbox>
 
     </div>

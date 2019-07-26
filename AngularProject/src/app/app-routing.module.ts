@@ -6,11 +6,11 @@ import { ForgetComponent } from './component/forget/forget.component';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { CreatenoteComponent } from './component/createnote/createnote.component';
-import { GetnoteComponent } from './component/getnote/getnote.component';
 import { IconComponent } from './component/icon/icon.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { RestoreComponent } from './component/restore/restore.component';
+import { SearchComponent } from './component/search/search.component';
 
 
 
@@ -43,7 +43,7 @@ const routes: Routes = [
       },
       {
         path:"",
-        component:GetnoteComponent
+        component:CreatenoteComponent
       },
       {
         path:"getTrash",
@@ -57,6 +57,10 @@ const routes: Routes = [
         path:"getArchive",
         component:ArchiveComponent
       },
+      {
+        path:"search",
+        component:SearchComponent
+      }
       
      
     ]
@@ -77,7 +81,11 @@ const routes: Routes = [
   {
     path:"restore",
     component:RestoreComponent
-  }
+  },
+  // {
+  //   path:"search",
+  //   component:SearchComponent
+  // }
  
   
 
