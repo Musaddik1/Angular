@@ -3,6 +3,8 @@ import { Note } from 'src/app/Model/note';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/services/note.service';
+import { BehaviorSubject } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-createnote',
@@ -11,7 +13,8 @@ import { NoteService } from 'src/app/services/note.service';
 })
 export class CreatenoteComponent implements OnInit {
 
-  constructor(private snackbar:MatSnackBar,private noteservice:NoteService) { }
+  
+  constructor(private snackbar:MatSnackBar,private noteservice:NoteService,private dataservice:DataService) { }
   showAddNote:boolean
   note:Note=new Note();
   createForm:FormGroup;
@@ -40,7 +43,9 @@ export class CreatenoteComponent implements OnInit {
         {
           if(response.statuscode==200)
           {
-            this.snackbar.open("note created","close",{duration:2500})
+          
+            this.dataservice.changeMessage("createnote")
+            this.snackbar.open("note created","close",{duration :2500})
           }
           else
           {

@@ -46,21 +46,19 @@ const routes: Routes = [
         component:CreatenoteComponent
       },
       {
+        path:"search",
+        component:SearchComponent
+      },
+      {
         path:"getTrash",
         component:TrashComponent
       },
-      // {
-      //   path:"getnote",
-      //   component:GetnoteComponent
-      // },
+      
       {
         path:"getArchive",
         component:ArchiveComponent
       },
-      {
-        path:"search",
-        component:SearchComponent
-      }
+      
       
      
     ]

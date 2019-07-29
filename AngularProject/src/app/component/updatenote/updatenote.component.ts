@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/services/note.service';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-updatenote',
@@ -17,7 +18,7 @@ export class UpdatenoteComponent implements OnInit {
   open: boolean = true;
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,private noteService: NoteService,
     private snackBar: MatSnackBar,
-    private router: Router,private dialog:MatDialog) { }
+    private router: Router,private dialog:MatDialog,private dataservice:DataService) { }
 
   updateForm:FormGroup;
 
@@ -42,6 +43,7 @@ export class UpdatenoteComponent implements OnInit {
       {
         if(response.statuscode=200)
         {
+          this.dataservice.changeMessage("updatenote")
           this.snackBar.open("note updated","close",{duration:2500});
         }
         else{

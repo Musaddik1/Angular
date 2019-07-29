@@ -22,7 +22,7 @@ export class UserService {
   }
   public getRequest(url:any,data:any)
   {
-    return this.httpclient.get(this.baseUrl+url);
+    return this.httpclient.get(this.baseUrl+url,data);
   }
   public putRequest(url:any,data:any)
   {

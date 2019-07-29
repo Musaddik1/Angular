@@ -18,7 +18,7 @@
   <button mat-icon-button>
     <mat-icon>person_add</mat-icon>
   </button>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="onColor(noteColor)"  [matMenuTriggerFor]="color">
     <mat-icon>color_lens</mat-icon>
   </button>
   <button mat-icon-button>
@@ -32,6 +32,14 @@
 
   </button>
 </div>
+<mat-menu #color="matMenu" [overlapTrigger]="false">
+  <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let color of colors">
+    <div *ngFor="let noteColor of color">
+      <button [ngStyle]="{ 'background-color': noteColor.colorCode }" (click)="onColor(noteColor.colorName)"
+        matTooltip="{{ noteColor.colorName }}" mat-mini-fab></button>
+    </div>
+  </div>
+</mat-menu>
 
 <mat-menu #more_option="matMenu" [overlapTrigger]="false">
   <button mat-menu-item (click)="onTrash()">

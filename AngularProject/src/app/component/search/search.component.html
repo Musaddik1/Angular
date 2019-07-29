@@ -1,5 +1,5 @@
 <div class="mainCard" *ngFor="let item of notesList" >
-        
+        <div>
              <mat-card >
                      <p>{{item.title}}</p>
                      <p> {{item.description}}</p>
@@ -7,5 +7,5 @@
                       <app-icon [noteInfo]="item"></app-icon>
                          </div>
             </mat-card>
-       
+        </div>
  </div>

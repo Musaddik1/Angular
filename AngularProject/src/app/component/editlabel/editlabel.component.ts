@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { Label } from 'src/app/Model/label';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-editlabel',
@@ -12,14 +13,19 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class EditlabelComponent implements OnInit {
 
-  constructor(private labelservice:LabelService,private snackBar:MatSnackBar,private dialog:MatDialog) { }
+  constructor(private labelservice:LabelService,private snackBar:MatSnackBar,
+    private dataservice:DataService, private dialog:MatDialog) { }
 
   label:Label=new Label();
   labelForm:FormGroup;
   
   labelsList:any
   ngOnInit() {
-    this.getLabel()
+    this.dataservice.currentMessage.subscribe(
+      message=>{
+        this.getLabel();
+      }
+    )
     this.labelForm=new FormBuilder().group(
       {
         labelName:new FormControl(this.label.labelName,Validators.required)
@@ -45,6 +51,7 @@ export class EditlabelComponent implements OnInit {
       {
         if(response.statuscode==200)
         {
+          this.dataservice.changeMessage("createlabel")
           this.snackBar.open("label created ","close",{duration:2500});
         }
       }
@@ -61,6 +68,7 @@ export class EditlabelComponent implements OnInit {
       {
         if(response.statuscode==200)
         {
+          this.dataservice.changeMessage("updatelabel")
           this.snackBar.open("label updated","close",{duration:2500})
         }
       }
@@ -76,6 +84,7 @@ export class EditlabelComponent implements OnInit {
      {
        if(response.statuscode==200)
        {
+         this.dataservice.changeMessage("deletelabel")
          this.snackBar.open("label deleted","close",{duration:2500});
        }
      }

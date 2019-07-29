@@ -7,6 +7,7 @@ import { LabelService } from 'src/app/services/label.service';
 import { NoteService } from 'src/app/services/note.service';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,15 +17,15 @@ import { BehaviorSubject } from 'rxjs';
 export class DashboardComponent implements OnInit {
   private obtainNotes = new BehaviorSubject([]);
   currentMessage = this.obtainNotes.asObservable();
-  constructor(private router:Router,private dialog:MatDialog,private labelservice:LabelService,private noteservice:NoteService) { }
+  constructor(private router:Router,private dialog:MatDialog,
+    private userservice:UserService, private labelservice:LabelService,private noteservice:NoteService) { }
   notesList:any;
   searchNotes:any;
   ngOnInit() {
     this.getLabel();
-   
-   
+    
   }
-  
+  show:boolean;
 
   onLogout()
   {
@@ -50,9 +51,9 @@ export class DashboardComponent implements OnInit {
     this.noteservice.getRequest("noteservice/search?text="+text).subscribe
     (
       (response:any):any=>{
-        this.obtainNotes=response;
-        console.log("search notes =>",response);
-       this.router.navigate(['dashboard/search'])
+        this.obtainNotes.next(response);
+        console.log("search notes =>",response)
+       this.router.navigate(["dashboard/search"])
       }
     );
     
@@ -76,6 +77,20 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
-
+  image:string;
+  Profile()
+  {
+    this.userservice.postRequest("userservice/geturl",'').subscribe
+  
+    (
+      (url:any):any=>
+      {
+        this.image=url;
+        console.log(this.image);
+        
+      }
+    )
+   
+  }
  
 }
