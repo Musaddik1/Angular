@@ -18,12 +18,14 @@ export class IconComponent implements OnInit {
   labelsList:any;
   noteLabelsList:any;
   message:any;
+  @Input() noteInfo:any
   ngOnInit() {
    
    this.dataservice.currentMessage.subscribe(
     message=>{
-      this.getLabels();
       this.getLabelsOfNotes();
+      this.getLabels();
+     
      
     } 
    )
@@ -47,7 +49,7 @@ export class IconComponent implements OnInit {
     ]
   ]
 
-  @Input() noteInfo:any
+ 
 
     onTrash()
     {
@@ -144,11 +146,12 @@ export class IconComponent implements OnInit {
         }
       )
     }
-    onColor(color:any)
+    onColor(colorName:any)
     {
-      console.log("color ==>",color);
+      console.log("color ==>",colorName);
       
-      this.noteservice.putRequest("noteservice/color?noteId="+this.noteInfo.noteId+"&colorCode="+color,'').subscribe(
+      this.noteservice.putRequest("noteservice/color?noteId="+this.noteInfo.noteId+"&colorCode="+colorName,null).subscribe(
+
         (response:any):any=>
         {
           if(response.statuscode)
@@ -161,3 +164,4 @@ export class IconComponent implements OnInit {
     }
     
 }
+//     this.noteService.putRequest("note/color?colorCode=" + color + "&noteId=" + this.noteData.id).subscribe(

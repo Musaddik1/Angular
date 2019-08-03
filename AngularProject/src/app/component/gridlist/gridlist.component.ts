@@ -1,38 +1,37 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdatenoteComponent } from '../updatenote/updatenote.component';
 import { DataService } from 'src/app/services/data.service';
-import { GridlistComponent } from '../gridlist/gridlist.component';
 
 @Component({
-  selector: 'app-getnote',
-  templateUrl: './getnote.component.html',
-  styleUrls: ['./getnote.component.scss']
+  selector: 'app-gridlist',
+  templateUrl: './gridlist.component.html',
+  styleUrls: ['./gridlist.component.scss']
 })
-export class GetnoteComponent implements OnInit {
-  constructor(private noteservice: NoteService, private snackbar: MatSnackBar,
-    private dialog:MatDialog,private dataservice:DataService) { }
+export class GridlistComponent implements OnInit {
 
-  noteList: any;
-  ngOnInit()  {
-    this.dataservice.currentMessage.subscribe(
+  constructor(private noteservice:NoteService, private dialog:MatDialog,private dataservice:DataService) { }
+  notesList:any
+  ngOnInit() {
+    this.dataservice.currentMessage.subscribe
+    (
       message=>{
-        this.getNote();
+        this.gridList();
       }
     )
   }
- 
 
-  getNote() {
+  gridList()
+  {
     this.noteservice.getRequest("noteservice/notes").subscribe(
       data => {
-        this.noteList= data;
+        this.notesList= data;
         console.log('get all note ==>', data);
       }
     )
   }
+
   openDialog(note:any)
   {
     const ref=this.dialog.open(UpdatenoteComponent,{
@@ -47,5 +46,4 @@ export class GetnoteComponent implements OnInit {
       }
     })
   }
- 
 }

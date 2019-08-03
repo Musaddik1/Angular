@@ -34,10 +34,11 @@
 
                 </div>
                 <div fxFlex="7">
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="gridList()" >
                         <mat-icon matTooltip="Grid_view">view_agenda</mat-icon>
                     </button>
                 </div>
+                
                 <div fxFlex="7">
                     <button mat-icon-button>
                         <mat-icon matTooltip="settings">settings</mat-icon>
@@ -49,10 +50,10 @@
                     </button>
                 </div>
                 <div fxFlex="7">
-                    <button mat-icon-button (click)="Profile()"> -->
+                    <button mat-icon-button (click)="Profile()">
                        
                           <mat-icon matTooltip="account" [matMenuTriggerFor]="more_option">
-                             
+                             account_circle
                           </mat-icon> 
                      </button> 
                 </div>

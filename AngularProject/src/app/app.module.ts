@@ -41,6 +41,7 @@ import { UpdatenoteComponent } from './component/updatenote/updatenote.component
 import { EditlabelComponent } from './component/editlabel/editlabel.component';
 import { RestoreComponent } from './component/restore/restore.component';
 import { SearchComponent } from './component/search/search.component';
+import { GridlistComponent } from './component/gridlist/gridlist.component';
 
 
 
@@ -63,7 +64,8 @@ import { SearchComponent } from './component/search/search.component';
     UpdatenoteComponent,
     EditlabelComponent,
     RestoreComponent,
-    SearchComponent
+    SearchComponent,
+    GridlistComponent
   ],
   imports: [
     BrowserModule,

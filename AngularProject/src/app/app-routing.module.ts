@@ -11,6 +11,7 @@ import { TrashComponent } from './component/trash/trash.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { RestoreComponent } from './component/restore/restore.component';
 import { SearchComponent } from './component/search/search.component';
+import { GridlistComponent } from './component/gridlist/gridlist.component';
 
 
 
@@ -58,6 +59,10 @@ const routes: Routes = [
         path:"getArchive",
         component:ArchiveComponent
       },
+      {
+        path:"gridlist",
+        component:GridlistComponent
+      }
       
       
      

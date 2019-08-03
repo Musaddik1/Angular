@@ -8,6 +8,7 @@ import { NoteService } from 'src/app/services/note.service';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,15 +19,20 @@ export class DashboardComponent implements OnInit {
   private obtainNotes = new BehaviorSubject([]);
   currentMessage = this.obtainNotes.asObservable();
   constructor(private router:Router,private dialog:MatDialog,
-    private userservice:UserService, private labelservice:LabelService,private noteservice:NoteService) { }
+   private dataservice:DataService, private userservice:UserService, private labelservice:LabelService,private noteservice:NoteService) { }
   notesList:any;
   searchNotes:any;
   ngOnInit() {
-    this.getLabel();
     
+    this.dataservice.currentMessage.subscribe
+    (
+      message=>{
+        this.getLabel();
+      }
+    )
   }
   show:boolean;
-
+  open=false;
   onLogout()
   {
    
@@ -45,6 +51,19 @@ export class DashboardComponent implements OnInit {
   getArchive()
   {
     this.router.navigate(['dashboard/getArchive'])
+  }
+  gridList()
+  {
+    if(this.open==false)
+    {
+      this.open=true;
+    this.router.navigate(['dashboard/gridlist']);
+    }else if(this.open==true)
+    {
+      this.open=false;
+      this.router.navigate(['dashboard/createnote']);
+    }
+   
   }
   onSearch(text:any)
   {
