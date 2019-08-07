@@ -1,5 +1,5 @@
 <div class="mainCard" *ngFor="let item of noteList" fxLayoutGap="10px" >
-    <mat-card style="margin-left: 100px;">
+    <mat-card style="margin-left: 100px;"  [ngStyle]="{'background-color': item.colorCode}">
         
       <div (click)="openDialog(item)">
           <p>{{item.title}}</p>

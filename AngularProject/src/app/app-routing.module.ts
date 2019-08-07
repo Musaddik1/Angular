@@ -12,6 +12,7 @@ import { ArchiveComponent } from './component/archive/archive.component';
 import { RestoreComponent } from './component/restore/restore.component';
 import { SearchComponent } from './component/search/search.component';
 import { GridlistComponent } from './component/gridlist/gridlist.component';
+import { AuthCardService } from './services/auth-card.service';
 
 
 
@@ -33,7 +34,9 @@ const routes: Routes = [
     path:"reset/:token",
     component:ResetpasswordComponent
   },
+  
   {
+    canActivate:[AuthCardService],
     path:"dashboard",
     component:DashboardComponent,
     children:[
