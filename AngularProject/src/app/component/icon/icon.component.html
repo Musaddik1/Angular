@@ -35,7 +35,7 @@
 <mat-menu #color="matMenu" [overlapTrigger]="false">
   <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 3px" *ngFor="let color of colors">
     <div *ngFor="let noteColor of color">
-      <button [ngStyle]="{ 'background-color': noteColor.colorCode }" mat-mini-fab (click)="onColor(noteColor.colorName)"
+      <button [ngStyle]="{ 'background-color': noteColor.colorCode }" mat-mini-fab (click)="onColor(noteColor.colorCode)"
         matTooltip="{{ noteColor.colorName }}" ></button>
     </div>
   </div>

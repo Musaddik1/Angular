@@ -29,5 +29,8 @@ export class TrashComponent implements OnInit {
       }
     )
   }
-  
+  getDetail(item)
+  {
+    
+  }
 }

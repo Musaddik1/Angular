@@ -42,6 +42,7 @@ import { EditlabelComponent } from './component/editlabel/editlabel.component';
 import { RestoreComponent } from './component/restore/restore.component';
 import { SearchComponent } from './component/search/search.component';
 import { GridlistComponent } from './component/gridlist/gridlist.component';
+import { OrderPipe } from './order.pipe';
 
 
 
@@ -65,7 +66,8 @@ import { GridlistComponent } from './component/gridlist/gridlist.component';
     EditlabelComponent,
     RestoreComponent,
     SearchComponent,
-    GridlistComponent
+    GridlistComponent,
+    OrderPipe
   ],
   imports: [
     BrowserModule,

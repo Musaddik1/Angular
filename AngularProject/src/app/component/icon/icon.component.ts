@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/services/note.service';
 import { LabelService } from 'src/app/services/label.service';
 import { DataService } from 'src/app/services/data.service';
+
 
 
 
@@ -19,6 +20,8 @@ export class IconComponent implements OnInit {
   noteLabelsList:any;
   message:any;
   @Input() noteInfo:any
+  @Output() onChangeColor:EventEmitter<String>=new EventEmitter();
+
   ngOnInit() {
    
    this.dataservice.currentMessage.subscribe(
@@ -163,5 +166,8 @@ export class IconComponent implements OnInit {
       )
     }
     
+    setColor(color) {
+      this.onChangeColor.emit(color);
+      }
 }
 //     this.noteService.putRequest("note/color?colorCode=" + color + "&noteId=" + this.noteData.id).subscribe(

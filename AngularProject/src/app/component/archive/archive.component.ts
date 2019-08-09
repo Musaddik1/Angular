@@ -3,6 +3,7 @@ import { NoteService } from 'src/app/services/note.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
+import { DefaultGridAlignRowsDirective } from '@angular/flex-layout/grid/typings/align-rows/align-rows';
 
 @Component({
   selector: 'app-archive',
@@ -18,7 +19,9 @@ export class ArchiveComponent implements OnInit {
   ngOnInit() {
     this.dataservice.currentMessage.subscribe(
       message=>{
+        
         this.getArchive();
+       
       }
     )
   }
@@ -32,7 +35,7 @@ export class ArchiveComponent implements OnInit {
     )
   }
 
-  
+ 
   
 
 }

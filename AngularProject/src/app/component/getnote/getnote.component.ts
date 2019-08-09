@@ -14,7 +14,8 @@ import { GridlistComponent } from '../gridlist/gridlist.component';
 export class GetnoteComponent implements OnInit {
   constructor(private noteservice: NoteService, private snackbar: MatSnackBar,
     private dialog:MatDialog,private dataservice:DataService) { }
-
+  
+    setColor:any;
   noteList: any;
   ngOnInit()  {
     this.dataservice.currentMessage.subscribe(
@@ -47,5 +48,14 @@ export class GetnoteComponent implements OnInit {
       }
     })
   }
- 
+
+  updateColor(data, $event) {
+    this.setColor = $event;
+    console.log("setcolor",event)
+    var colorUpdate = {
+    "color": this.setColor,
+    "noteIdList": [data.id] /* Access noteIdList for particular note*/
+    }
+    
+  }
 }

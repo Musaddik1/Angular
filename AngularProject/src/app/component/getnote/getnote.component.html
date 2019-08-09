@@ -7,7 +7,7 @@
          
       </div>
       <div fxLayout="row" fxLayoutAlign="start">
-        <app-icon [noteInfo]="item"></app-icon>
+        <app-icon [noteInfo]="item" (onChangeColor)="updateColor(data,$event)"></app-icon>
     </div >
         </mat-card>
  

@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
    password=new  FormControl(this.login.password,Validators.required)
   onLogin()
   {
-   
+   console.log("in login component")
     this.userservice.postRequest('userservice/login',this.loginForm.value).subscribe(
       (response:any):any=>
       {
